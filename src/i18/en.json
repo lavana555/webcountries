@@ -1,0 +1,30 @@
+{
+
+  "app.language": "Language   ",
+  "app.currienciesCountry": "CURRIENCIES COUNTRY",
+  "app.fullName": "FULL NAME COUNTRY",
+  "app.shortName": "SHORT NAME COUNTRY",
+  "app.codeCountry": "CODE COUNTRY",
+  "app.allCountries": "ALLCOUNTRIES",
+
+
+
+  "aboutcountry.name": "Country:",
+  "aboutcountry.capital": "Capital:",
+  "aboutcountry.region": "Region:",
+  "aboutcountry.subregion": "Subregion:",
+  "aboutcountry.population": "Population:",
+  "aboutcountry.topLevelDomain": "Top level domain:",
+  "aboutcountry.alpha2Code": "Alpha2Code:",
+  "aboutcountry.alpha3Code": "Alpha3Code:",
+  "aboutcountry.languages": "Languages:",
+  "aboutcountry.borders": "Borders:",
+  "aboutcountry.timezones": "Timezones:",
+  "aboutcountry.nativeName": "Native name:",
+  "aboutcountry.numericCode": "Numeric code country:",
+  "aboutcountry.flag": "Flag:",
+  "input.shortName": "Short Name Country"
+
+
+
+}

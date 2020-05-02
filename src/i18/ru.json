@@ -1,0 +1,28 @@
+{
+  "app.language": "Язык   ",
+  "app.currienciesCountry": "Код валюты ",
+  "app.fullName": "Полное имя страны ",
+  "app.shortName": "Короткое имя страны ",
+  "app.codeCountry": "Код страны ",
+  "app.allCountries": "Все страны",
+
+  "aboutcountry.name": "Страна:",
+  "aboutcountry.capital": "Столица:",
+  "aboutcountry.region": "Регион:",
+  "aboutcountry.subregion": "Субрегион:",
+  "aboutcountry.population": "Население:",
+  "aboutcountry.topLevelDomain": "Домен верхнего уровня:",
+  "aboutcountry.alpha2Code": "Двузначный код:",
+  "aboutcountry.alpha3Code": "Трёхзначный код:",
+  "aboutcountry.languages": "Языки:",
+  "aboutcountry.borders": "Граничит с:",
+  "aboutcountry.timezones": "Часовой пояс:",
+  "aboutcountry.nativeName": "Первоначальное название:",
+  "aboutcountry.numericCode": "Код страны:",
+  "aboutcountry.flag": "Флаг:",
+  "input.shortName": "Короткое имя страны"
+
+
+
+
+}
