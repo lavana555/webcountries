@@ -23,7 +23,7 @@ export const AboutCountryLocale=(props)=> {
 
 export const AppLocale = (props)=>  {
     return (
-        <div>
+        <div className='rowTable'>
             <FormattedMessage id={'app.' + props.name} defaultMessage={props.defaultMessage}/>
         </div>
     )

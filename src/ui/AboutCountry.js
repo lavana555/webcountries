@@ -26,7 +26,7 @@ export default function   AboutCountry  (props)  {
         {name:'flag',defaultMessage:'Subregion',img:true},
     ]
 
-   let tablesEL=rows.map(r=>  <AboutCountryLocale name={r.name}
+   let tablesEL=rows.map(r=>  <AboutCountryLocale  name={r.name}
                                                   defaultMessage={r.defaultMessage}
                                                   dataCountry={props.dataCountry}
                                                   object={r.object}
