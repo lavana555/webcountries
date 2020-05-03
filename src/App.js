@@ -85,9 +85,11 @@ function App() {
     return (
         <div className="App">
             <IntlProvider locale={intiallocal} messages={message[intiallocal]}>
-                <div className={'header'}>
+                <div className='header'>
+                    <div className='languge'>
                     <AppLocale name={'language'} defaultMessage={'Language'}/>
-                    <div>
+                    </div>
+                    <div className='header_btn'>
 
                         <Button variant="contained" size="medium" color="primary" className={classes.margin} onClick={changedLocale}>
                         en
@@ -95,15 +97,13 @@ function App() {
                         <Button variant="contained" size="medium" color="primary" className={classes.margin} onClick={changedLocale} onClick={changedLocale}>
                             ru
                         </Button>
-                        {/*<button onClick={changedLocale}>en</button>*/}
-                        {/*<button onClick={changedLocale}>ru</button>*/}
                     </div>
                 </div>
                 {loading ?
                     <Planets animation="slide-down" background="#bff2bf"/>
                     : null}
                 {error ? <div style={{color: "red"}}>{error}</div> : null}
-                <section className={'about'}>
+                <section className='about'>
                     <div className='container'>
                         <div className='items'>
                             <div className='item'>
