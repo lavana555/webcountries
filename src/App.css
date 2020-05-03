@@ -22,9 +22,16 @@ display: flex;
 }
 
 .item{
-  margin-top: 15px;
+  margin: 15px;
 
 }
+
+.select{
+  width: 410px;
+  height: 44px;
+  border-radius: 5px;
+}
+
 .AboutCountry{
 
 }
