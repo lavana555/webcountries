@@ -6,6 +6,17 @@
 
 
 }
+
+.particl{
+  position: fixed !important;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.6;
+
+}
+
 .header{
   display: flex;
   flex-direction: column;
