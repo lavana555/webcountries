@@ -20,6 +20,8 @@ import {Planets} from 'react-preloaders';
 import {AppLocale} from "./ui/AboutCountryLocale";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Flip from 'react-reveal/Flip';
+import {Fade, Slide} from "react-reveal";
 
 
 
@@ -85,8 +87,11 @@ function App() {
     return (
         <div className="App">
             <IntlProvider locale={intiallocal} messages={message[intiallocal]}>
+
                 <div className='header'>
+                    <Flip left>
                     <div className='languge'>
+
                     <AppLocale name={'language'} defaultMessage={'Language'}/>
                     </div>
                     <div className='header_btn'>
@@ -97,19 +102,27 @@ function App() {
                         <Button variant="contained" size="medium" color="primary" className={classes.margin} onClick={changedLocale} onClick={changedLocale}>
                             ru
                         </Button>
+
                     </div>
+                        </Flip>
+
                 </div>
+
                 {loading ?
                     <Planets animation="slide-down" background="#bff2bf"/>
                     : null}
                 {error ? <div style={{color: "red"}}>{error}</div> : null}
                 <section className='about'>
                     <div className='container'>
+                        <Fade bottom>
                         <div className='items'>
+
                             <div className='item'>
                                 <AppLocale name={'shortName'} defaultMessage={'SHORT NAME COUNTRY'}/>
                                 <ShortName onsearchShortName={onsearchShortName}/>
                             </div>
+
+
                             <div className='item'>
                                 {shortNamecountry.length != 0 &&
                                 <div>
@@ -119,12 +132,15 @@ function App() {
                                 </div>
                                 }
                             </div>
+
+
                             <div className='item'>
                                 <AppLocale name={'fullName'} defaultMessage={'FULL NAME COUNTRY'}/>
                                 <div>
                                     <FullName onsearchFullName={onsearchFullName}/>
                                 </div>
                             </div>
+
                             <div className='item'>
                                 <AppLocale name={'codeCountry'} defaultMessage={'CODE COUNTRY'}/>
                                 <div>
@@ -146,12 +162,15 @@ function App() {
                                 </div>
                             </div>
                         </div>
+
                         <div className='AboutCountry'>
                             {dataCountry.length != 0 &&
                             <AboutCountry dataCountry={dataCountry}/>
                             }
                         </div>
+                            </Fade>
                     </div>
+
                 </section>
             </IntlProvider>
         </div>
