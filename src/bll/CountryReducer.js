@@ -7,8 +7,8 @@ export const GET_FULLNAMECOUNTRY = 'CountryReducer/GET_FULLNAMECOUNTRY';
 export const GET_CODECOUNTRY = 'CountryReducer/GET_CODECOUNTRY';
 export const GET_CURRENCIESCOUNTRY = 'CountryReducer/GET_CURRENCIESCOUNTRY';
 export const GET_ABOUTCOUNTRY = 'CountryReducer/GET_ABOUTCOUNTRY';
-export const LOADING_STATUS = 'listPhotoReducer/LOADING_STATUS';
-export const ERROR_MESSAGE = 'listPhotoReducer/ERROR_MESSAGE';
+export const LOADING_STATUS = 'CountryReducer/LOADING_STATUS';
+export const ERROR_MESSAGE = 'CountryReducer/ERROR_MESSAGE';
 
 
 const initialState = {
@@ -33,6 +33,7 @@ export const CountryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 shortNamecountry: action.shortNamecountry,
+                dataCountry: [],
                 fullNamecountry:[],
                 codeCountry:[],
                 currenciesCountry:[],
@@ -86,6 +87,10 @@ export const CountryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.error,
+                dataCountry: [],
+                shortNamecountry:[],
+                fullNamecountry:[],
+                codeCountry:[],
             }
         }
         default:
@@ -93,25 +98,65 @@ export const CountryReducer = (state = initialState, action) => {
     }
 };
 
-
-
-
-
-export const getCountryTC = () => async (dispatch) => {
-
+const tryCatch = async (act, dispatch) => {
     try {
         dispatch(action.loadAC(true))
-        let res = await api.getCountryALL()
-        dispatch(action.getPhotoAC(res.data))
-        dispatch(action.loadAC(false))
+        await act();
     } catch (error) {
+        dispatch(action.errorAlertSuccess(error.message))
+    } finally {
         dispatch(action.loadAC(false))
-        dispatch(action.errorAlertSuccess(error))
-
-
     }
+}
+
+
+
+export  const  getCountryTC=()=>(dispatch)=>{
+    tryCatch(async ()=>{
+        let data = await api.getCountryALL()
+        dispatch(action.getPhotoAC(data))
+    },dispatch)
+}
+
+export const onsearchShortNameTC = (shortName) => async (dispatch) => {
+    tryCatch(async ()=>{
+        let data = await api.getCountryShortName(shortName)
+        dispatch(action.getShortNameAC(data))
+    },dispatch)
+}
+
+
+export const onsearchFullNameTC = (FullName) => async (dispatch) => {
+    tryCatch(async ()=>{
+        let data = await api.getCountryFullName(FullName)
+        dispatch(action.getFullNameAC(data))
+    },dispatch)
 
 }
+
+
+export const onsearchCodeCountryTC = (codeCountry) => async (dispatch) => {
+
+    tryCatch(async ()=>{
+        let data = await api.getCountryCode(codeCountry)
+        dispatch(action.getCodeCountryAC(data))
+    },dispatch)
+
+
+}
+
+
+
+export const onsearchCurrenciesCountryTC = (currencies) => async (dispatch) => {
+
+    tryCatch(async ()=>{
+        let data = await api.getCountryCurrency(currencies)
+        dispatch(action.getCurrenciesCountryAC(data))
+    },dispatch)
+
+}
+
+
 
 
 
@@ -120,67 +165,9 @@ export const onaboutCountryTC=(newcountry)=>(dispatch)=>{
 }
 
 
-
-
-export const onsearchShortNameTC = (shortName) => async (dispatch) => {
-
-    try {
-        dispatch(action.loadAC(true))
-        let res = await api.getCountryShortName(shortName)
-        dispatch(action.getShortNameAC(res.data))
-        dispatch(action.loadAC(false))
-    } catch (error) {
-
-        dispatch(action.loadAC(false))
-        dispatch(action.errorAlertSuccess(error.message))
-
-
-    }
+export const errorAlertTC=()=>(dispatch)=>{
+    dispatch(action.errorAlertSuccess(''))
 }
-
-export const onsearchFullNameTC = (FullName) => async (dispatch) => {
-
-    try {
-        dispatch(action.loadAC(true))
-        let res = await api.getCountryFullName(FullName)
-        dispatch(action.getFullNameAC(res.data))
-        dispatch(action.loadAC(false))
-    } catch (error) {
-        dispatch(action.loadAC(false))
-        dispatch(action.errorAlertSuccess(error.message))
-
-
-    }
-}
-
-export const onsearchCodeCountryTC = (codeCountry) => async (dispatch) => {
-
-    try {
-        dispatch(action.loadAC(true))
-        let res = await api.getCountryCode(codeCountry)
-        dispatch(action.getCodeCountryAC(res.data))
-        dispatch(action.loadAC(false))
-    } catch (error) {
-        dispatch(action.loadAC(false))
-        dispatch(action.errorAlertSuccess(error.message))
-
-
-    }
-}
-
-export const onsearchCurrenciesCountryTC = (currencies) => async (dispatch) => {
-
-    try {
-        dispatch(action.loadAC(true))
-        let res = await api.getCountryCurrency(currencies)
-        dispatch(action.getCurrenciesCountryAC(res.data))
-        dispatch(action.loadAC(false))
-    } catch (error) {
-        dispatch(action.loadAC(false))
-        dispatch(action.errorAlertSuccess(error.message))
-    }
-}
-
 
 
 

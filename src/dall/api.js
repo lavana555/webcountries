@@ -4,23 +4,37 @@
 const instance = axios.create({
      baseURL: "https://restcountries.eu/rest/v2/",
  })
- export const api={
-     getCountryALL(){
-         return  instance.get(`all`)
-     },
+
+export  const api={
+
+ save: {},
+
+ _get(path) {
+     if (this.save[path]) return Promise.resolve(this.save[path]);
+
+     return instance.get(path)
+         .then(res => {
+             this.save[path] = res.data;
+             return res.data
+         })
+         .catch(error => {
+             console.error(error)
+             throw new Error("error server")
+         })
+ },
     getCountryFullName(fullName) {
-         return instance.get(`name/${fullName}?fullText=true`)
-     },
+     return this._get(`name/${fullName}?fullText=true`)
+ },
     getCountryShortName(shortName) {
-         return  instance.get(`name/${shortName}`)
-     },
+     return this._get(`name/${shortName}`)
+ },
     getCountryCurrency(currencyCode) {
-         return  instance.get(`currency/${currencyCode}`)
-     },
+     return this._get(`currency/${currencyCode}`)
+ },
     getCountryCode(code){
-         return  instance.get(`alpha/${code}`)
-     }
-
-}
-
-
+     return this._get(`alpha/${code}`)
+ },
+    getCountryALL(){
+     return this._get(`all`)
+ }
+ }

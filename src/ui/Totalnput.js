@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 400,
+        width: "100%",
     },
     input: {
         marginLeft: theme.spacing(1),
@@ -28,40 +28,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-
-
 function TotalInput(props) {
-    const[value,setValue]=useState('')
+    const [value, setValue] = useState('')
     const classes = useStyles();
 
     const textInput = useRef(null)
-    const   changedValue=(textInput)=>{
+    const changedValue = (textInput) => {
 
         setValue(textInput.currentTarget.value)
     }
 
-    const onsearch=()=>{
+    const onsearch = () => {
 
         props.onsearch(value)
         setValue('')
+    }
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            props.onsearch(value)
+            setValue('')
+        }
     }
 
 
     return (
         <div>
 
-            <Paper component="form" className={classes.root}>
+            <Paper className={classes.root}>
+
                 <InputBase
                     className={classes.input}
                     placeholder={props.placeholder}
-                    inputProps={{ 'aria-label': 'search google maps' }}
+                    inputProps={{'aria-label': 'search google maps'}}
+                    onKeyPress={handleKeyPress}
                     onChange={changedValue}
-                value={value}
-                       ref={textInput}
+                    value={value}
+                    ref={textInput}
                 />
-                <IconButton  className={classes.iconButton} aria-label="search" onClick={onsearch}>
-                    <SearchIcon  />
+                <IconButton className={classes.iconButton} aria-label="search" onClick={onsearch}>
+                    <SearchIcon/>
                 </IconButton>
             </Paper>
 
@@ -69,5 +74,5 @@ function TotalInput(props) {
     );
 }
 
-export default  TotalInput
+export default TotalInput
 

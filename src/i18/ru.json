@@ -5,6 +5,7 @@
   "app.shortName": "Короткое имя страны ",
   "app.codeCountry": "Код страны ",
   "app.allCountries": "Все страны",
+  "app.selectCountries": "Выберите страну",
 
   "aboutcountry.name": "Страна:",
   "aboutcountry.capital": "Столица:",
@@ -20,7 +21,10 @@
   "aboutcountry.nativeName": "Первоначальное название:",
   "aboutcountry.numericCode": "Код страны:",
   "aboutcountry.flag": "Флаг:",
-  "input.shortName": "Короткое имя страны"
+  "input.shortName": "Короткое имя страны",
+  "input.fullName": "Полное имя страны ",
+  "input.codeCountry": "Код страны",
+  "input.currienciesCountry": "Код валюты"
 
 
 

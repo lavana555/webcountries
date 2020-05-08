@@ -6,6 +6,7 @@
   "app.shortName": "SHORT NAME COUNTRY",
   "app.codeCountry": "CODE COUNTRY",
   "app.allCountries": "ALLCOUNTRIES",
+  "app.selectCountries": "Select on country",
 
 
 
@@ -23,7 +24,10 @@
   "aboutcountry.nativeName": "Native name:",
   "aboutcountry.numericCode": "Numeric code country:",
   "aboutcountry.flag": "Flag:",
-  "input.shortName": "Short Name Country"
+  "input.shortName": "Short Name Country",
+  "input.fullName": "FULL NAME COUNTRY",
+  "input.codeCountry": "CODE COUNTRY",
+  "input.currienciesCountry": "CURRIENCIES COUNTRY"
 
 
 

@@ -31,22 +31,26 @@
 //
 // export default ShortName
 import React from 'react';
-import TotalInput from "./Totalnput";
-import {useIntl} from 'react-intl';
+import {AppLocale} from "./AboutCountryLocale";
+import {useIntl} from "react-intl";
 
 
-function ShortName(props) {
+function Selectcountry(props) {
+
     const intl = useIntl();
     return (
-        <div>
-
-            <TotalInput placeholder={
-                intl.formatMessage({id: 'input.shortName'})
-            } onsearch={props.onsearchShortName}/>
-
+        <div className='item'>
+            <AppLocale name={'allCountries'} defaultMessage={'ALLCOUNTRIES'}/>
+            <div>
+                <select className="select" onChange={props.onaboutCountry}>
+                    <option value="none" selected disabled hidden>
+                        {intl.formatMessage({id: 'app.selectCountries'})}
+                    </option>
+                    {props.CodeCountries}
+                </select>
+            </div>
         </div>
-    );
+    )
 }
 
-export default ShortName
-
+export default (Selectcountry)

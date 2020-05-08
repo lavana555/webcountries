@@ -1,6 +1,8 @@
 import React from 'react';
 import {FormattedMessage} from "react-intl";
 
+
+
 export const AboutCountryLocale=(props)=> {
 
 
@@ -23,17 +25,12 @@ export const AboutCountryLocale=(props)=> {
 
 export const AppLocale = (props)=>  {
     return (
-        <div className='rowTable'>
+        <div >
             <FormattedMessage id={'app.' + props.name} defaultMessage={props.defaultMessage}/>
         </div>
     )
 }
 
 
-export const InputLocale = (props)=>  {
-    return (
-        <div>
-            <FormattedMessage id={'input.' + props.name} defaultMessage={props.defaultMessage}/>
-        </div>
-    )
-}
+
+

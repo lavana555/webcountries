@@ -27,6 +27,7 @@ export default function   AboutCountry  (props)  {
     ]
 
    let tablesEL=rows.map(r=>  <AboutCountryLocale  name={r.name}
+                                                   key={r.index}
                                                   defaultMessage={r.defaultMessage}
                                                   dataCountry={props.dataCountry}
                                                   object={r.object}

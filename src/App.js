@@ -18,16 +18,15 @@ import messages_en from "./i18/en";
 import {IntlProvider} from "react-intl";
 import {Planets} from 'react-preloaders';
 import {AppLocale} from "./ui/AboutCountryLocale";
-import {makeStyles} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Flip from 'react-reveal/Flip';
-import {Fade, Slide} from "react-reveal";
+import {Fade} from "react-reveal";
 import Particles from "react-particles-js";
-import {particlesOption, useStyles} from "./particlesOption";
-
+import {particlesOption} from "./particlesOption";
+import ErrorMessage from "./ui/ErrorMessage";
+import Header from "./ui/Header";
+import Selectcountry from "./ui/Selectcountry";
 
 function App() {
-    const classes = useStyles();
+
     const dispatch = useDispatch();
     const {countryAll, shortNamecountry, dataCountry, loading, error} = useSelector((store) => store.country);
     const [intiallocal, setLocal] = useState('en')
@@ -62,7 +61,6 @@ function App() {
         localStorage.setItem('locale', locale);
     };
 
-
     const onaboutCountry = (e) => {
         let newADD = (countryAll.filter(dataItems => {
             if (dataItems.name === e.target.value)
@@ -76,86 +74,53 @@ function App() {
     const CodeCountries = countryAll.map(el => <option key={el.id}>  {el.name} </option>);
     return (
         <div className="App">
-            <Particles className='particl' params={particlesOption}/>
-            <IntlProvider locale={intiallocal} messages={message[intiallocal]}>
-
-                <div className='header'>
-                    <Flip left>
-                        <div className='languge'>
-
-                            <AppLocale name={'language'} defaultMessage={'Language'}/>
-                        </div>
-                        <div className='header_btn'>
-
-                            <Button variant="contained" size="medium" color="primary" className={classes.margin}
-                                    onClick={changedLocale}>
-                                en
-                            </Button>
-                            <Button variant="contained" size="medium" color="primary" className={classes.margin}
-                                    onClick={changedLocale} onClick={changedLocale}>
-                                ru
-                            </Button>
-                        </div>
-                    </Flip>
-                </div>
-                {loading ?
-                    <Planets animation="slide-down" background="#bff2bf"/>
-                    : null}
-                {error ? <div style={{color: "red"}}>{error}</div> : null}
-                <section className='about'>
-                    <div className='container'>
-                        <Fade bottom>
-                            <div className='items'>
-
-                                <div className='item'>
-                                    <AppLocale name={'shortName'} defaultMessage={'SHORT NAME COUNTRY'}/>
-                                    <ShortName onsearchShortName={onsearchShortName}/>
-                                </div>
-                                <div className='item'>
-                                    {shortNamecountry.length != 0 &&
-                                    <div>
-                                        <select className="select" onChange={onaboutCountry}>
-                                            {shortNamecountryEL}
-                                        </select>
+            <div className='countries'>
+                <Particles className='particl' params={particlesOption}/>
+                <IntlProvider locale={intiallocal} messages={message[intiallocal]}>
+                    <Header changedLocale={changedLocale}/>
+                    {loading && <Planets animation="slide-down" background="#bff2bf"/>}
+                    {error && <ErrorMessage error={error}/>}
+                    <section className='about'>
+                        <div className='container'>
+                            <Fade bottom>
+                                <div className='items'>
+                                    <div className='item'>
+                                        <AppLocale name={'shortName'} defaultMessage={'SHORT NAME COUNTRY'}/>
+                                        <ShortName onsearchShortName={onsearchShortName}/>
                                     </div>
+                                    {shortNamecountry.length !== 0 &&
+                                    <Selectcountry onaboutCountry={onaboutCountry} CodeCountries={shortNamecountryEL}/>
+                                    }
+                                    <div className='item'>
+                                        <AppLocale name={'fullName'} defaultMessage={'FULL NAME COUNTRY'}/>
+                                        <div>
+                                            <FullName onsearchFullName={onsearchFullName}/>
+                                        </div>
+                                    </div>
+                                    <div className='item'>
+                                        <AppLocale name={'codeCountry'} defaultMessage={'CODE COUNTRY'}/>
+                                        <div>
+                                            <CodeCountry onsearchCodeCountry={onsearchCodeCountry}/>
+                                        </div>
+                                    </div>
+                                    <div className='item'>
+                                        <AppLocale name={'currienciesCountry'} defaultMessage={'CURRIENCIES COUNTRY'}/>
+                                        <div>
+                                            <CurrenciesCountry onsearchCurrenciesCountry={onsearchCurrenciesCountry}/>
+                                        </div>
+                                    </div>
+                                    <Selectcountry onaboutCountry={onaboutCountry} CodeCountries={CodeCountries}/>
+                                </div>
+                                <div className='AboutCountry'>
+                                    {dataCountry.length !== 0 &&
+                                    <AboutCountry dataCountry={dataCountry}/>
                                     }
                                 </div>
-                                <div className='item'>
-                                    <AppLocale name={'fullName'} defaultMessage={'FULL NAME COUNTRY'}/>
-                                    <div>
-                                        <FullName onsearchFullName={onsearchFullName}/>
-                                    </div>
-                                </div>
-                                <div className='item'>
-                                    <AppLocale name={'codeCountry'} defaultMessage={'CODE COUNTRY'}/>
-                                    <div>
-                                        <CodeCountry onsearchCodeCountry={onsearchCodeCountry}/>
-                                    </div>
-                                </div>
-                                <div className='item'>
-                                    <AppLocale name={'currienciesCountry'} defaultMessage={'CURRIENCIES COUNTRY'}/>
-                                    <div>
-                                        <CurrenciesCountry onsearchCurrenciesCountry={onsearchCurrenciesCountry}/>
-                                    </div>
-                                </div>
-                                <div className='item'>
-                                    <AppLocale name={'allCountries'} defaultMessage={'ALLCOUNTRIES'}/>
-                                    <div>
-                                        <select className="select" onChange={onaboutCountry}>
-                                            {CodeCountries}
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='AboutCountry'>
-                                {dataCountry.length != 0 &&
-                                <AboutCountry dataCountry={dataCountry}/>
-                                }
-                            </div>
-                        </Fade>
-                    </div>
-                </section>
-            </IntlProvider>
+                            </Fade>
+                        </div>
+                    </section>
+                </IntlProvider>
+            </div>
         </div>
     );
 }

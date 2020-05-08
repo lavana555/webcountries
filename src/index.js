@@ -5,17 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import store from "./bll/store";
-import './i18n';
+
 
 ReactDOM.render(
-
-  <React.StrictMode>
-      <Provider store={store}>
-
-    <App />
-          </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+        <Provider store={store}>
+            <App/>
+        </Provider>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
