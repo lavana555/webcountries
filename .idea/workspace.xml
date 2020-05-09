@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b07782c5-2156-4269-ae09-fdfb4ba96b9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ui/ErrorMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Selectcountry.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/Progress.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/Action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/Action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/CountryReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CountryReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/Type.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dall/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dall/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/AboutCountry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AboutCountry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/AboutCountryLocale.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AboutCountryLocale.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/CodeCountry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/CodeCountry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/CurrenciesCountry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/CurrenciesCountry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/FullName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FullName.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ShortName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ShortName.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Totalnput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Totalnput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +79,8 @@
       <workItem from="1588521229221" duration="6269000" />
       <workItem from="1588698123099" duration="593000" />
       <workItem from="1588838941182" duration="30975000" />
-      <workItem from="1588917913413" duration="943000" />
+      <workItem from="1588917913413" duration="3382000" />
+      <workItem from="1589011358983" duration="220000" />
     </task>
     <servers />
   </component>

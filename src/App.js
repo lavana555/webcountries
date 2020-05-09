@@ -16,7 +16,6 @@ import CurrenciesCountry from "./ui/CurrenciesCountry";
 import messages_ru from "./i18/ru";
 import messages_en from "./i18/en";
 import {IntlProvider} from "react-intl";
-import {Planets} from 'react-preloaders';
 import {AppLocale} from "./ui/AboutCountryLocale";
 import {Fade} from "react-reveal";
 import Particles from "react-particles-js";
@@ -24,6 +23,7 @@ import {particlesOption} from "./particlesOption";
 import ErrorMessage from "./ui/ErrorMessage";
 import Header from "./ui/Header";
 import Selectcountry from "./ui/Selectcountry";
+import Progress from "./ui/Progress";
 
 function App() {
 
@@ -78,10 +78,11 @@ function App() {
                 <Particles className='particl' params={particlesOption}/>
                 <IntlProvider locale={intiallocal} messages={message[intiallocal]}>
                     <Header changedLocale={changedLocale}/>
-                    {loading && <Planets animation="slide-down" background="#bff2bf"/>}
                     {error && <ErrorMessage error={error}/>}
+                    {loading && <Progress />}
                     <section className='about'>
                         <div className='container'>
+
                             <Fade bottom>
                                 <div className='items'>
                                     <div className='item'>
